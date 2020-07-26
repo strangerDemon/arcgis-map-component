@@ -1,32 +1,32 @@
 <template>
-    <div>
-        <Header :app-title="title" />
-        <WebMap />
-    </div>
+  <div id="app-start" class="app-start">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script lang="ts">
-import Header from './components/Header.vue';
-import WebMap from './components/WebMap.vue';
-
-import { title } from './config';
-
+import * as countryInfo from './data/local-country-info';
 export default {
     name: 'App',
-    components: { Header, WebMap },
+    components: {},
     data: () => ({
-        title
-    })
+        countryInfo
+    }),
+    mounted() {
+        console.log('window 1:', window);
+        console.log('countryInfo:', this.countryInfo);
+    }
 };
 </script>
 
-<style lang="scss" scoped>
-div {
+<style lang="less" scoped>
+.app-start {
     display: flex;
     flex-direction: column;
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
+    font-size: 12px;
 }
 </style>

@@ -13,7 +13,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = function(_, arg) {
+module.exports = function (_, arg) {
     const config = {
         entry: {
             index: [
@@ -89,6 +89,10 @@ module.exports = function(_, arg) {
                             }
                         }
                     ]
+                },
+                {
+                    test: /\.less$/,
+                    loader: 'style-loader!css-loader!less-loader'
                 },
                 {
                     test: /\.css$|\.scss$/,
@@ -178,7 +182,7 @@ module.exports = function(_, arg) {
         ],
         resolve: {
             modules: [path.resolve(__dirname, 'src/'), path.resolve(__dirname, 'node_modules/')],
-            extensions: ['.ts', '.tsx', '.js', '.vue', '.scss', '.css'],
+            extensions: ['.ts', '.tsx', '.js', '.vue', '.scss', '.css', '.less'],
             alias: {
                 vue$: arg.mode === 'production' ? 'vue/dist/vue.runtime.js' : 'vue/dist/vue.runtime.min.js',
                 '@': path.resolve(__dirname, 'src/')

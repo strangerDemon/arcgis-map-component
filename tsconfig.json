@@ -19,7 +19,7 @@
     "noLib": false,
     "preserveConstEnums": true,
     "noEmit": true,
-    
+
     "outDir": "./dist/",
     "sourceMap": true,
     "noEmitOnError": false,
